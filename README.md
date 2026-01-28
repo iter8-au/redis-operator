@@ -77,6 +77,30 @@ To monitor Redis performance we will be using Prometheus. In any case, extra Pro
 
 In addition to the annotations you have the possibility to deploy a `ServiceMonitor` for each of the Redis installations (configurable via Helm values file).
 
+## Single YAML Installer
+
+Render the kustomize single file, for easy installation:
+
+> kustomize build config/default -o config/install.yaml
+
+This can then be installed via either of:
+
+> kubectl apply --server-side -k config/install.yaml
+
+> kubectl apply --server-side -k https://raw.githubusercontent.com/iter8-au/redis-operator/refs/heads/op-dev/config/install.yaml
+
+cf. with `scripts/install-operator.sh`:
+
+```
+#!/bin/bash
+
+kubectl apply -f CODES/golang/redis-operator-1/config/crd/bases/
+kubectl apply -f CODES/golang/redis-operator-1/config/manager/manager.yaml
+kubectl apply -f CODES/golang/redis-operator-1/config/rbac/serviceaccount.yaml
+kubectl apply -f CODES/golang/redis-operator-1/config/rbac/role.yaml
+kubectl apply -f CODES/golang/redis-operator-1/config/rbac/role_binding.yaml
+```
+
 ## Contribution
 
 Please see our [CONTRIBUTING.md](./CONTRIBUTING.md) for details.
