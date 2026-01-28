@@ -24705,7 +24705,7 @@ spec:
         - name: ENABLE_WEBHOOKS
           value: "false"
         image: quay.io/opstree/redis-operator:v0.23.0
-        imagePullPolicy: Always
+        imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
             path: /healthz
