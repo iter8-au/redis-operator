@@ -37,7 +37,7 @@ spec:
         - --zap-log-level=debug
         - --enable-webhooks=false
         image: controller
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         name: manager
         securityContext:
           allowPrivilegeEscalation: false
