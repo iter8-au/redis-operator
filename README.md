@@ -85,9 +85,9 @@ Render the kustomize single file, for easy installation:
 
 This can then be installed via either of:
 
-> kubectl apply --server-side -k config/install.yaml
+> kubectl apply --server-side -f config/install.yaml
 
-> kubectl apply --server-side -k https://raw.githubusercontent.com/iter8-au/redis-operator/refs/heads/op-dev/config/install.yaml
+> kubectl apply --server-side -f https://raw.githubusercontent.com/iter8-au/redis-operator/refs/heads/op-dev/config/install.yaml
 
 cf. with `scripts/install-operator.sh`:
 
@@ -100,6 +100,10 @@ kubectl apply -f CODES/golang/redis-operator-1/config/rbac/serviceaccount.yaml
 kubectl apply -f CODES/golang/redis-operator-1/config/rbac/role.yaml
 kubectl apply -f CODES/golang/redis-operator-1/config/rbac/role_binding.yaml
 ```
+
+### Uninstall
+
+> kubectl delete -f config/install.yaml
 
 ## Contribution
 

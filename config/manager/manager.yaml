@@ -54,12 +54,12 @@ spec:
           initialDelaySeconds: 5
           periodSeconds: 10
         resources:
-          limits:
-            cpu: 100m
-            memory: 100Mi
           requests:
-            cpu: 100m
-            memory: 100Mi
+            cpu: 10m
+            memory: 10Mi
+          limits:
+            cpu: 25m
+            memory: 25Mi
       terminationGracePeriodSeconds: 10
       serviceAccount: redis-operator
       serviceAccountName: redis-operator
