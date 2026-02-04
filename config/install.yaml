@@ -24728,8 +24728,15 @@ spec:
             memory: 10Mi
         securityContext:
           allowPrivilegeEscalation: false
+      nodeSelector:
+        node-operator-label: "true"
       securityContext:
         runAsNonRoot: true
       serviceAccount: redis-operator
       serviceAccountName: redis-operator-redis-operator
       terminationGracePeriodSeconds: 10
+      tolerations:
+      - effect: NoSchedule
+        key: node-operator
+        operator: Equal
+        value: "true"

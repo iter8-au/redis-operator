@@ -25,6 +25,13 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
+      tolerations:
+      - key: "node-operator"
+        value: "true"
+        operator: "Equal"
+        effect: "NoSchedule"
+      nodeSelector:
+        "node-operator-label": "true"
       containers:
       - command:
         - /operator
